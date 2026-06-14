@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMAL SAFARI — ภารกิจหน่วย Junior Ranger | CODELAB</title>
+<title>ANIMAL SAFARI — Junior Ranger Mission | CODELAB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -262,12 +262,12 @@ body{font-family:'Sarabun',sans-serif;background:var(--navy-dk);color:var(--ink)
     <div id="gate">
       <div class="arch">
         <h1>ANIMAL <span class="go">SAFARI</span></h1>
-        <div class="sub">ภารกิจหน่วย Junior Ranger · 3 วัน · 10 ภารกิจ</div>
+        <div class="sub">Junior Ranger Mission · 3 Days · 10 Missions</div>
         <div class="badge">CODELAB × VEX GO</div>
         <div class="paws">🐾 🦁 🐾</div>
       </div>
     </div>
-    <button class="big-btn" id="btn-start" style="position:absolute;bottom:7vh">▶ เริ่มภารกิจ</button>
+    <button class="big-btn" id="btn-start" style="position:absolute;bottom:7vh">▶ Start Mission</button>
   </div>
 
   <!-- generic content panel -->
@@ -344,28 +344,28 @@ body{font-family:'Sarabun',sans-serif;background:var(--navy-dk);color:var(--ink)
 
   <!-- speech bubble -->
   <div id="bubble">
-    <div class="who">ผู้กองลีโอ · CAPTAIN LEO</div>
+    <div class="who">CAPTAIN LEO</div>
     <div class="txt"></div>
-    <div class="hint">แตะเพื่อไปต่อ ▶</div>
+    <div class="hint">Tap to continue ▶</div>
   </div>
 
   <!-- oath scene -->
   <div class="layer" id="scene-oath">
     <div id="oath-box" style="position:absolute;top:12vh;left:0;right:0">
-      <div class="oath-line" style="font-size:clamp(20px,3vw,44px)">ภารกิจทั้งหมดสำเร็จแล้ว! ภูมิใจในตัวพวกเธอมาก ✊</div>
-      <div class="oath-line" style="margin-top:1.5vh">ยกมือขวาขึ้น แล้วพูดพร้อมกันอย่างภาคภูมิใจ…</div>
-      <div class="oath-line" style="margin-top:2vh">“เราคือ <span class="hl">หน่วย Junior Ranger</span> แห่ง CODELAB!”</div>
+      <div class="oath-line" style="font-size:clamp(20px,3vw,44px)">All missions complete! I'm so proud of you all ✊</div>
+      <div class="oath-line" style="margin-top:1.5vh">Raise your right hand, and say it together with pride…</div>
+      <div class="oath-line" style="margin-top:2vh">“We are the <span class="hl">Junior Rangers</span> of CODELAB!”</div>
     </div>
   </div>
   <div id="stamp">MISSION COMPLETE<small>CERTIFIED JUNIOR RANGER · CODELAB</small></div>
   <div id="congrats" style="position:absolute;left:0;right:0;top:56%;text-align:center;opacity:0;transition:opacity .5s .5s;z-index:9">
     <div style="font-size:clamp(22px,3.4vw,50px);font-weight:800;color:#fff;text-shadow:0 .4vh 0 var(--navy-dk),0 1.2vh 2.5vh rgba(0,0,0,.4)">
-      เยี่ยมมาก! 🎉 พวกเธอช่วยสัตว์กลับบ้านได้สำเร็จ — เป็น Junior Ranger เต็มตัวแล้ว!</div>
+      Amazing work! 🎉 You helped the animals get home safe — you're full Junior Rangers now!</div>
   </div>
 
   <div id="brand">
     <div class="logo">CODELAB</div>
-    <div class="course">VEX GO · Animal Safari · 3 วัน</div>
+    <div class="course">VEX GO · Animal Safari · 3 Days</div>
   </div>
   <div id="dots"></div>
   <div id="nav">
@@ -377,20 +377,20 @@ body{font-family:'Sarabun',sans-serif;background:var(--navy-dk);color:var(--ink)
 <script>
 /* ================= SCENE DATA ================= */
 const MISSIONS = [
-  {d:1,emo:"🚙",nm:"สร้าง Safari Jeep"},
-  {d:1,emo:"🛣️",nm:"ขับวนถนนซาฟารี"},
-  {d:2,emo:"👁️",nm:"ติด Eye Sensor"},
-  {d:2,emo:"🌈",nm:"สอนหุ่นรู้จักสี"},
-  {d:2,emo:"🔁",nm:"ตั้งเซนเซอร์วนตรวจ"},
-  {d:2,emo:"🚨",nm:"ลาดตระเวนหาสัตว์"},
-  {d:3,emo:"🦾",nm:"ติดแขนกู้ภัย"},
-  {d:3,emo:"🧪",nm:"ฝึกตัก–ดันสัตว์"},
-  {d:3,emo:"🧩",nm:"วางแผน+บังคับกู้ภัย"},
+  {d:1,emo:"🚙",nm:"Build the Safari Jeep"},
+  {d:1,emo:"🛣️",nm:"Drive the Safari Loop"},
+  {d:2,emo:"👁️",nm:"Attach the Eye Sensor"},
+  {d:2,emo:"🌈",nm:"Teach the Robot Colors"},
+  {d:2,emo:"🔁",nm:"Set the Sensor Watch-Loop"},
+  {d:2,emo:"🚨",nm:"Patrol for Animals"},
+  {d:3,emo:"🦾",nm:"Attach the Rescue Arm"},
+  {d:3,emo:"🧪",nm:"Practice Scoop & Push"},
+  {d:3,emo:"🧩",nm:"Plan + Drive Rescue"},
   {d:3,emo:"🏆",nm:"Rescue Challenge"},
 ];
 
 function mapHTML(){
-  return `<div class="map-title">🗺️ แผนที่ภารกิจ Animal Safari — 3 วัน 10 ภารกิจ</div>
+  return `<div class="map-title">🗺️ Mission Map: Animal Safari — 3 Days · 10 Missions</div>
   <div class="map-grid">` + MISSIONS.map((m,i)=>`
     <div class="mcard d${m.d}" style="transition-delay:${i*0.09}s">
       <div class="day">DAY ${m.d}</div>
@@ -410,18 +410,18 @@ function missionHTML(num,day,title,emo,steps,goal,img){
       ${visual}
       <ul>${steps.map(s=>`<li>${s}</li>`).join("")}</ul>
     </div>
-    <div class="goal">🏆 <b>สำเร็จเมื่อ:</b> ${goal}</div>
+    <div class="goal">🏆 <b>Success when:</b> ${goal}</div>
   </div>`;
 }
 
 function debriefHTML(day,qs){
   return `<div class="mission-detail">
-    <div class="head" style="background:#0EA5E9"><span class="chip">DEBRIEF · DAY ${day}</span><span class="t">สรุปผลการดำเนินการ</span></div>
+    <div class="head" style="background:#0EA5E9"><span class="chip">DEBRIEF · DAY ${day}</span><span class="t">Mission Debrief</span></div>
     <div class="bd">
       <div class="scene-emo">📝</div>
       <ul>${qs.map(q=>`<li>${q}</li>`).join("")}</ul>
     </div>
-    <div class="goal" style="border-left-color:#0EA5E9">✍️ <b style="color:#0EA5E9">บันทึก:</b> ช่วยกันตอบ แล้วจดผลของทีมลงสมุด Engineering Notebook</div>
+    <div class="goal" style="border-left-color:#0EA5E9">✍️ <b style="color:#0EA5E9">Record:</b> Discuss together and write your team's result in the Engineering Notebook</div>
   </div>`;
 }
 
@@ -438,139 +438,139 @@ function cardHTML(chip,color,title,emo,items){
 const SCENES = [
   { bg:"bg-night", gogo:null, layer:"scene-title" },
   { bg:"bg-day", gogo:"wave",
-    lines:["สวัสดีครับนักผจญภัย! ข้าคือ <b style='color:#D99500'>ผู้กองลีโอ</b> 🦁",
-           "หัวหน้าหน่วย Junior Ranger แห่งป่าซาฟารี CODELAB หน้าที่ข้าคือดูแลสัตว์ทุกตัวให้ปลอดภัยและมีความสุข!"]
+    lines:["Hello adventurers! I am <b style='color:#D99500'>Captain Leo</b> 🦁",
+           "I'm the leader of the Junior Ranger team here at the CODELAB safari. My job is to keep every animal safe and happy!"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    lines:["ก่อนอื่น ข้าขอเล่าเรื่องป่าซาฟารีแห่งนี้ให้ฟังก่อนนะ 🌅",
-           "ป่าซาฟารี CODELAB ก่อตั้งมากว่า <b>50 ปี</b> เป็นบ้านของสัตว์กว่า <b>100 ชนิด</b> ทั้งสิงโต ยีราฟ ช้าง ม้าลาย และเสือ",
-           "เรนเจอร์ทุกรุ่นสาบานว่าจะดูแลสัตว์ทุกตัวให้ปลอดภัย… และวันนี้ ถึงรุ่นของพวกเธอแล้ว!"]
+    lines:["First, let me tell you the story of this safari 🌅",
+           "The CODELAB safari was founded over <b>50 years</b> ago. It's home to more than <b>100 species</b> — lions, giraffes, elephants, zebras, and tigers.",
+           "Every group of rangers has sworn to keep all the animals safe… and today, it's your turn!"]
   },
   { bg:"bg-alert", gogo:"worried",
-    lines:["🚨 แย่แล้ว! เมื่อคืนพายุใหญ่พัดถล่มป่าซาฟารี!",
-           "สัตว์หลายตัวบาดเจ็บ พลัดหลงอยู่ในพงหญ้า… ยีราฟ ช้าง ม้าลาย เสือ ต้องการความช่วยเหลือ",
-           "ข้าตัวคนเดียวช่วยไม่ทันแน่ๆ ทำยังไงดี… 😰"]
+    lines:["🚨 Oh no! Last night a huge storm hit the safari!",
+           "Many animals are hurt and lost in the tall grass… giraffes, elephants, zebras, and tigers all need our help.",
+           "I can't save them all by myself. What do we do… 😰"]
   },
   { bg:"bg-day", gogo:"excited", panel:mapHTML(),
-    lines:["ข้านึกออกแล้ว! ข้าต้องการ <b style='color:#D99500'>ทีมเรนเจอร์</b> ที่เก่งที่สุด ก็คือพวกเธอทุกคน!",
-           "เราจะสร้างหุ่นยนต์ VEX GO ช่วยสัตว์ให้ครบ <b>10 ภารกิจ ใน 3 วัน</b> — ดูแผนที่นี่เลย!"]
+    lines:["I've got it! I need the very best <b style='color:#D99500'>ranger team</b> — and that's all of you!",
+           "We'll build VEX GO robots and finish all <b>10 missions in 3 days</b> — take a look at this map!"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("อุปกรณ์","#1E2761","รู้จักอุปกรณ์ของเรนเจอร์","🧰",
-      ["<b>Brain (สมอง)</b> — สั่งงานหุ่นทั้งหมด","<b>มอเตอร์ + ล้อ</b> — ทำให้รถเคลื่อนที่และเลี้ยว","<b>Eye Sensor (ดวงตา)</b> — มองเห็นสีของสัตว์","<b>แบตเตอรี่</b> — พลังให้หุ่นทำงาน","<b>โครงสร้าง + ตัวต่อ</b> — ประกอบเป็นตัว Safari Jeep","<b>แท็บเล็ต/โค้ด</b> — เขียนคำสั่งแบบบล็อก"]),
-    lines:["ก่อนเริ่ม มารู้จักอุปกรณ์ของเรนเจอร์กันก่อน!","อุปกรณ์เหล่านี้จะอยู่กับเราตลอด 3 วันนะ 🧰"]
+    panel:cardHTML("Equipment","#1E2761","Meet a Ranger's Equipment","🧰",
+      ["<b>Brain</b> — gives orders to the whole robot","<b>Motors + Wheels</b> — make the jeep move and turn","<b>Eye Sensor</b> — sees the colors of the animals","<b>Battery</b> — powers the robot","<b>Structure + Connectors</b> — build the Safari Jeep body","<b>Tablet / Code</b> — write block commands"]),
+    lines:["Before we start, let's meet a ranger's equipment!","These tools will be with us all 3 days 🧰"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("ตารางเวลา","#1E2761","แต่ละวันเรียนยังไง (09:00–15:00)","🕘",
-      ["<b>09:00</b> รวมพล Ranger + แบ่งทีม","<b>09:15</b> Mission Briefing กับผู้กองลีโอ","<b>10:00</b> ลงมือทำ · ประกอบ/เขียนโค้ด","<b>11:15</b> STEAM Lab","<b>13:00</b> ภารกิจในสนาม","<b>14:30</b> สรุปผล + รับตรา","<b>15:00</b> ปิดวัน · ผู้ปกครองรับ"]),
-    lines:["แต่ละวันเรียน 09:00–15:00 มีทั้งสร้าง เล่นภารกิจ และพัก","มีพักย่อยกับพักกลางวันด้วยนะ — ดูตารางนี่เลย!"]
+    panel:cardHTML("Schedule","#1E2761","How Each Day Works (09:00–15:00)","🕘",
+      ["<b>09:00</b> Ranger gathering + team split","<b>09:15</b> Mission Briefing with Captain Leo","<b>10:00</b> Hands-on · build / write code","<b>11:15</b> STEAM Lab","<b>13:00</b> Field mission","<b>14:30</b> Debrief + earn your badge","<b>15:00</b> Day ends · parent pickup"]),
+    lines:["Each day runs 09:00–15:00 — we build, play missions, and rest","There are short breaks and a lunch break too — here's the schedule!"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:missionHTML(1,1,"สร้าง Safari Jeep","🚙",
-      ["ประกอบ <b>Code Base</b> 4 ล้อให้แข็งแรง","ใส่มอเตอร์ซ้าย–ขวา + Brain + แบตเตอรี่","ตั้งชื่อรถ ติดธงทีมให้เท่!"],
-      "Safari Jeep ขับเดินหน้า–เลี้ยว–หยุดได้ ทุกคนในทีมได้ลอง","assets/jeep_4wheel.png"),
-    lines:["ภารกิจแรก! เราต้องมีรถคู่ใจก่อน","มาช่วยกันประกอบ <b>Safari Jeep</b> ของทีมเธอกันเลย ค่อยๆ ต่อทีละชิ้นนะ!"]
+    panel:missionHTML(1,1,"Build the Safari Jeep","🚙",
+      ["Build a strong 4-wheel <b>Code Base</b>","Add left & right motors + Brain + battery","Name your jeep and add a cool team flag!"],
+      "The Safari Jeep can drive forward, turn, and stop — everyone on the team gets a try","assets/jeep_4wheel.png"),
+    lines:["First mission! We need our trusty jeep first","Let's build your team's <b>Safari Jeep</b> together — add one piece at a time!"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("แนวคิด","#0EA5E9","บังคับรถ: เดินหน้า เลี้ยว หยุด","🎮",
-      ["<b>เดินหน้า</b> — ล้อสองข้างหมุนไปข้างหน้าเท่ากัน","<b>เลี้ยวซ้าย</b> — ล้อขวาหมุนมากกว่าซ้าย","<b>เลี้ยวขวา</b> — ล้อซ้ายหมุนมากกว่าขวา","<b>หยุด</b> — ล้อทั้งสองหยุดพร้อมกัน"]),
-    lines:["ล้อสองข้างทำงานต่างกัน รถก็ไปคนละทาง!","ลองบังคับดูนะ เดี๋ยวเอาไปใช้ขับในสนามจริง"]
+    panel:cardHTML("Concept","#0EA5E9","Drive: Forward, Turn, Stop","🎮",
+      ["<b>Forward</b> — both wheels spin forward at the same speed","<b>Turn left</b> — right wheel spins more than the left","<b>Turn right</b> — left wheel spins more than the right","<b>Stop</b> — both wheels stop together"]),
+    lines:["When the two wheels work differently, the jeep goes a different way!","Give it a try — you'll use this to drive on the real field"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:missionHTML(2,1,"ขับวนถนนซาฟารี","🛣️",
-      ["ออกจากจุด <b>START</b> ขับตามถนนวงรอบ","คุมรถให้อยู่ใน <b>ช่องเดิน 15 ซม.</b>","วนครบ 1 รอบ กลับมาจุดเดิม"],
-      "วนรอบสนามครบ โดยล้อไม่หลุดออกนอกช่อง","assets/AnimalSafari.png"),
-    lines:["ได้รถแล้วก็ต้องฝึกขับให้คล่อง!","ลองขับวนรอบถนนซาฟารีให้ครบ 1 รอบ เลี้ยวหัวมุมให้พอดี อย่าให้ล้อหลุดเส้นนะ!"]
+    panel:missionHTML(2,1,"Drive the Safari Loop","🛣️",
+      ["Leave the <b>START</b> point and follow the loop road","Keep the jeep inside the <b>15 cm lane</b>","Complete 1 full lap back to the start"],
+      "Complete a lap around the field without the wheels leaving the lane","assets/AnimalSafari.png"),
+    lines:["Now that we have a jeep, let's get good at driving it!","Try driving one full lap around the safari loop. Make smooth corners — don't let the wheels leave the line!"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:cardHTML("STEAM LAB","#F97316","ออกแบบตราทีม (Animal Patch)","🎨",
-      ["เลือกสัตว์ประจำทีม","วาด + ระบายสีในกรอบวงกลม","ตั้งชื่อทีม + คำขวัญให้เท่"]),
-    lines:["ทุกหน่วยเรนเจอร์ต้องมีตราประจำตัว!","มาออกแบบ <b>Animal Patch</b> แล้วติดไว้ที่รถ Jeep ของเธอกัน 🎨"]
+    panel:cardHTML("STEAM LAB","#F97316","Design a Team Badge (Animal Patch)","🎨",
+      ["Pick your team animal","Draw + color inside the round frame","Choose a team name + a cool motto"]),
+    lines:["Every ranger team needs its own badge!","Let's design an <b>Animal Patch</b> and stick it on your jeep 🎨"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:debriefHTML(1,["วันนี้รถของเราขับเป็นยังไงบ้าง?","ตอนเลี้ยวหัวมุม ล้อหลุดออกนอกช่องไหม แล้วแก้ยังไง?","ทีมเราช่วยกันยังไงให้สำเร็จ?"]),
-    lines:["เก่งมาก! ก่อนไปต่อ มาสรุปกันหน่อย — <b>วันนี้เราทำอะไรสำเร็จบ้าง?</b>","เล่าให้พี่ลีโอฟังที แล้วจดผลของทีมลงสมุดบันทึกด้วยนะ"]
+    panel:debriefHTML(1,["How did our jeep drive today?","Did the wheels leave the lane on corners? How did you fix it?","How did our team work together to succeed?"]),
+    lines:["Great job! Before we move on, let's wrap up — <b>what did we accomplish today?</b>","Tell Captain Leo about it, and write your team's result in the notebook"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:missionHTML(3,2,"ติดดวงตา Eye Sensor","👁️",
-      ["เสียบ <b>Eye Sensor</b> เข้าพอร์ตบน Brain","ติดให้หันหน้าออก มองด้านหน้ารถ","ยึดให้แน่น ไม่ขยับเวลารถวิ่ง"],
-      "Eye Sensor ติดแน่น พร้อมใช้งาน","assets/eye_sensor.png"),
-    lines:["ตอนนี้รถของเธอ <b>พร้อมแล้ว</b> ข้าขอ <b>มอบภารกิจใหม่</b>!","วันนี้เราจะเสกให้หุ่น <b>‘มองเห็น’</b> ได้ ด้วยดวงตาวิเศษ Eye Sensor — ติดไว้หน้ารถเลย!"]
+    panel:missionHTML(3,2,"Attach the Eye Sensor","👁️",
+      ["Plug the <b>Eye Sensor</b> into a port on the Brain","Point it forward, looking ahead of the jeep","Mount it tight so it won't wobble while driving"],
+      "The Eye Sensor is firmly attached and ready to use","assets/eye_sensor.png"),
+    lines:["Your jeep is <b>ready</b> now — I have a <b>new mission</b> for you!","Today we'll give the robot the power to <b>'see'</b> with a Magic Eye — the Eye Sensor. Mount it on the front of the jeep!"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("แนวคิด","#0EA5E9","ดวงตาเห็นสีได้ยังไง","👁️",
-      ["<b>เห็นสีแดง</b> — สัตว์บาดเจ็บ ต้องช่วย","<b>เห็นสีเขียว</b> — สัตว์สบายดี ขับผ่าน","Eye Sensor ส่องสีตรงหน้า แล้วบอกสมองหุ่น"]),
-    lines:["ดวงตาวิเศษดูสีของสัตว์ตรงหน้าได้!","จำง่ายๆ — <b>แดง = บาดเจ็บ · เขียว = สบายดี</b>"]
+    panel:cardHTML("Concept","#0EA5E9","How the Eye Sees Colors","👁️",
+      ["<b>Sees red</b> — an injured animal, needs help","<b>Sees green</b> — a healthy animal, drive past","The Eye Sensor scans the color ahead, then tells the robot's brain"]),
+    lines:["The Magic Eye can see the color of the animal right in front of it!","Easy to remember — <b>red = injured · green = healthy</b>"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:missionHTML(4,2,"สอนหุ่นรู้จักสี","🌈",
-      ["เปิดหน้าค่าสีใน <b>VEXcode GO</b>","ทดสอบการ์ด <b>สีแดง</b> และ <b>สีเขียว</b>","สั่งให้ไฟ/เสียงเตือนเมื่อเจอสีแดง"],
-      "หุ่นแยกแดง–เขียวได้ถูกต้องทุกครั้ง"),
-    lines:["ก่อนออกหาสัตว์ ต้องสอนหุ่นแยกสีให้แม่นก่อน!","เอาการ์ดสีแดงกับเขียวมาทดสอบ — ดูซิว่าหุ่นทายถูกไหม 👀"]
+    panel:missionHTML(4,2,"Teach the Robot Colors","🌈",
+      ["Open the color value screen in <b>VEXcode GO</b>","Test with the <b>red</b> card and the <b>green</b> card","Make a light/sound alert when it sees red"],
+      "The robot tells red from green correctly every time"),
+    lines:["Before we search for animals, we have to teach the robot to read colors accurately!","Bring the red and green cards to test — see if the robot guesses right 👀"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("แนวคิด","#0EA5E9","Loop + If","🔁",
-      ["<b>Loop (ทำซ้ำตลอด)</b> — สั่งครั้งเดียว ทำซ้ำเรื่อยๆ","<b>If (ถ้า…ก็)</b> — ถ้าเห็นแดง ก็ส่งเสียงเตือน","<b>Else (ไม่งั้น)</b> — ถ้าไม่ใช่ ก็ส่องดูต่อไป"]),
-    lines:["<b>Loop</b> คือ ‘เฝ้าดูตลอด’ · <b>If</b> คือ ‘ถ้าเจอแล้วทำ’","แค่สองอย่างนี้ หุ่นก็ช่วยเราหาสัตว์ได้แล้ว!"]
+    panel:cardHTML("Concept","#0EA5E9","Loop + If","🔁",
+      ["<b>Loop (repeat forever)</b> — order once, and it repeats over and over","<b>If (if… then)</b> — if it sees red, sound an alert","<b>Else (otherwise)</b> — if not, keep scanning"]),
+    lines:["<b>Loop</b> means 'keep watching' · <b>If</b> means 'when you find it, do this'","With just these two, the robot can help us find the animals!"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:missionHTML(5,2,"ตั้งเซนเซอร์วนตรวจ","🔁",
-      ["วางบล็อก <b>‘ทำซ้ำตลอด’ (Loop)</b>","ข้างใน: <b>ถ้าเห็นแดง → ส่งเสียง/ไฟ</b>","เธอบังคับรถเอง หุ่นคอยเฝ้าดูสี"],
-      "เซนเซอร์วนตรวจสีเอง เจอแดงร้องเตือนได้"),
-    lines:["เราไม่ต้องเขียนให้หุ่นวิ่งเองนะ — ยากไป!","แค่ใส่ <b>Loop</b> ให้เซนเซอร์ <b>คอยเฝ้าดูสีตลอดเวลา</b> เจอแดงเมื่อไหร่ร้องเตือนทันที ส่วนการขับ… เธอบังคับเอง!"]
+    panel:missionHTML(5,2,"Set the Sensor Watch-Loop","🔁",
+      ["Place a <b>'repeat forever' (Loop)</b> block","Inside: <b>if it sees red → sound/light</b>","You drive the jeep yourself; the robot keeps watching the colors"],
+      "The sensor watch-loop checks colors on its own and alerts when it finds red"),
+    lines:["We don't have to write the robot to drive itself — that's too hard!","Just add a <b>Loop</b> so the sensor <b>keeps watching the colors all the time</b>. When it sees red, it alerts right away. And the driving… you do that!"]
   },
   { bg:"bg-day", gogo:"excited",
-    panel:missionHTML(6,2,"ภารกิจลาดตระเวนหาสัตว์","🚨",
-      ["<b>บังคับ</b>รถวนรอบถนนซาฟารีเอง","ขับผ่านปากช่องแต่ละโซนช้าๆ","เซนเซอร์ร้องเตือน = เจอสัตว์บาดเจ็บ จดไว้"],
-      "ลาดตระเวนเจอสัตว์บาดเจ็บ (แดง) ครบทุกตัว","assets/AnimalSafari.png"),
-    lines:["ได้เวลาออกลาดตระเวน! เธอ <b>บังคับ</b>รถวนรอบป่า ส่วนหุ่นคอยส่องสีให้","เซนเซอร์ร้องเตือนเมื่อไหร่ = เจอสัตว์บาดเจ็บ! จดตำแหน่งไว้เลย 🚨"]
+    panel:missionHTML(6,2,"Patrol for Animals","🚨",
+      ["<b>Drive</b> the jeep around the safari loop yourself","Pass each zone's lane opening slowly","Sensor alert = found an injured animal, write it down"],
+      "Patrol and find every injured (red) animal","assets/AnimalSafari.png"),
+    lines:["Time to patrol! You <b>drive</b> the jeep around the safari while the robot scans the colors","Whenever the sensor alerts = you found an injured animal! Note the spot 🚨"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:cardHTML("STEAM LAB","#F97316","จับคู่เสียงสัตว์ (Sound Match)","🔊",
-      ["ฟังเสียงสัตว์แต่ละชนิด","จับคู่เสียงกับภาพสัตว์ให้ถูก","ทีมไหนถูกมากที่สุดชนะ"]),
-    lines:["หูก็สำคัญพอๆ กับตา!","ฟังเสียงสัตว์แล้วจับคู่ให้ถูก — เกม <b>Sound Match</b> 🔊"]
+    panel:cardHTML("STEAM LAB","#F97316","Match Animal Sounds (Sound Match)","🔊",
+      ["Listen to each animal's sound","Match the sound to the right animal picture","The team with the most correct matches wins"]),
+    lines:["Ears are just as important as eyes!","Listen to the animal sounds and match them right — the <b>Sound Match</b> game 🔊"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:debriefHTML(2,["Eye Sensor อ่านสีถูกทุกครั้งไหม?","Loop กับ If ต่างกันยังไง บอกพี่ลีโอหน่อย?","วันนี้เจอสัตว์บาดเจ็บกี่ตัว?"]),
-    lines:["สุดยอด! หุ่นของเธอหาสัตว์เองได้แล้ว","มาสรุปกัน — <b>Eye Sensor ทำงานเป็นยังไง? เจอปัญหาตรงไหนบ้าง?</b> เล่าให้พี่ลีโอฟังหน่อย"]
+    panel:debriefHTML(2,["Did the Eye Sensor read the colors right every time?","How are Loop and If different? Tell Captain Leo.","How many injured animals did you find today?"]),
+    lines:["Awesome! Your robot can find animals on its own now","Let's wrap up — <b>how does the Eye Sensor work? What problems did you hit?</b> Tell Captain Leo about it"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:missionHTML(7,3,"ติดแขนกู้ภัย","🦾",
-      ["ต่อ <b>แขน/ที่ตัก</b> ด้านหน้ารถ","ยึดให้แข็งแรง ระดับพอดีกับสัตว์","ตรวจไม่ให้ติดล้อหรือเซนเซอร์"],
-      "แขนกู้ภัยติดแน่น พร้อมตักสัตว์","assets/rescue_arm.png"),
-    lines:["วันสุดท้ายแล้ว — ภารกิจกู้ภัยของจริง!","Jeep ต้องมี <b>แขนกู้ภัย</b> ไว้ตักสัตว์กลับฐาน มาต่อเพิ่มหน้ารถกัน"]
+    panel:missionHTML(7,3,"Attach the Rescue Arm","🦾",
+      ["Add an <b>arm/scoop</b> to the front of the jeep","Mount it strong, at the right height for the animals","Check that it doesn't catch on the wheels or sensor"],
+      "The rescue arm is firmly attached and ready to scoop animals","assets/rescue_arm.png"),
+    lines:["It's the last day — a real rescue mission!","The Jeep needs a <b>rescue arm</b> to scoop animals back to Base. Let's add one to the front"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:missionHTML(8,3,"ฝึกตัก–ดันสัตว์","🧪",
-      ["ขับเข้าหาสัตว์ช้าๆ ให้ตรงแขน","ตัก/ดันให้สัตว์เคลื่อนที่","ลองหลายครั้ง ปรับมุมเข้าหา"],
-      "ตัก–ดันสัตว์ได้มั่นคงทุกครั้ง"),
-    lines:["ก่อนแข่งจริง ต้องซ้อมตักให้อยู่มือก่อน!","ลองขับเข้าไปตักตุ๊กตาสัตว์ แล้วดันให้เคลื่อนที่ — ทำซ้ำจนคล่อง"]
+    panel:missionHTML(8,3,"Practice Scoop & Push","🧪",
+      ["Drive toward the animal slowly, lined up with the arm","Scoop/push to move the animal","Try many times, adjust your approach angle"],
+      "Scoop and push animals steadily every time"),
+    lines:["Before the real challenge, we have to practice scooping until we've got it!","Try driving up to scoop a toy animal and push it along — repeat until you're smooth"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:missionHTML(9,3,"วางแผน+บังคับกู้ภัย","🧩",
-      ["เซนเซอร์วนตรวจช่วยส่องหา (Loop+If)","<b>บังคับ</b>เข้าช่อง แล้วตักสัตว์","ขับพากลับฐาน BASE"],
-      "ทำครบขั้น หา→เก็บ→กลับ เป็นทีม","assets/AnimalSafari.png"),
-    lines:["รวมทุกอย่างที่เรียนมาเป็นแผนกู้ภัยเดียว!","หุ่นช่วย <b>ส่องหา</b> ด้วยเซนเซอร์ · เธอ <b>บังคับ</b>เข้าไปตักแล้วพากลับ — แบ่งหน้าที่กันในทีม"]
+    panel:missionHTML(9,3,"Plan + Drive Rescue","🧩",
+      ["The sensor watch-loop helps you search (Loop+If)","<b>Drive</b> into the lane, then scoop the animal","Drive it back to Base"],
+      "Complete all the steps — find → collect → return — as a team","assets/AnimalSafari.png"),
+    lines:["Put everything we've learned into one rescue plan!","The robot helps <b>search</b> with the sensor · you <b>drive</b> in to scoop and bring it back — share the jobs in your team"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:cardHTML("STEAM LAB","#F97316","บันทึกภารกิจ (Wildlife Report)","📜",
-      ["บันทึกว่าช่วยสัตว์ได้กี่ตัว","จดเวลาที่ใช้ + ปัญหาที่เจอ","เขียนผลของทีมลงสมุดบันทึก"]),
-    lines:["เรนเจอร์มืออาชีพต้องจดบันทึก!","ทำ <b>Wildlife Report</b> ของทีม — ช่วยได้กี่ตัว ใช้เวลาเท่าไร 📜"]
+    panel:cardHTML("STEAM LAB","#F97316","Mission Log (Wildlife Report)","📜",
+      ["Record how many animals you rescued","Note the time you used + problems you met","Write your team's result in the Engineering Notebook"]),
+    lines:["A pro ranger always keeps a record!","Make your team's <b>Wildlife Report</b> — how many you rescued, how long it took 📜"]
   },
   { bg:"bg-day", gogo:"excited",
     panel:missionHTML(10,3,"Safari Rescue Challenge","🏆",
-      ["เก็บ <b>R1–R4</b> กลับ <b>BASE</b> ให้มากที่สุด","ใช้โปรแกรมอัตโนมัติ = โบนัส","ห้ามแตะสัตว์สีเขียว (−คะแนน)"],
-      "พาสัตว์กลับฐานมากที่สุดใน 2 นาที = แชมป์!","assets/AnimalSafari.png"),
-    lines:["นี่คือภารกิจสุดท้าย — <b>Safari Rescue Challenge</b>! 🏆","แข่งกันเก็บสัตว์กลับฐานให้มากที่สุดใน 2 นาที ข้าเชื่อในตัวพวกเธอ!"]
+      ["Bring <b>R1–R4</b> back to <b>BASE</b> as much as you can","Use an automatic program = bonus","Don't touch the green animals (−points)"],
+      "Bring the most animals back to Base in 2 minutes = champion!","assets/AnimalSafari.png"),
+    lines:["This is the final mission — the <b>Safari Rescue Challenge</b>! 🏆","Race to bring the most animals back to Base in 2 minutes. I believe in you all!"]
   },
   { bg:"bg-day", gogo:"happy",
-    panel:cardHTML("เก็บคะแนน","#8B5CF6","ตารางคะแนน Safari Rescue","🏅",
-      ["เก็บสัตว์บาดเจ็บกลับฐาน — <b style='color:#16A34A'>+5 / ตัว</b>","ใช้โปรแกรมอัตโนมัติ (Loop ตรวจเอง) — <b style='color:#0EA5E9'>+3 โบนัส</b>","เก็บครบทุกตัวในเวลา — <b style='color:#D99500'>+5 โบนัส</b>","แตะสัตว์สีเขียว — <b style='color:#DC2626'>−5 / ครั้ง</b>"]),
-    lines:["นี่คือกติกาเก็บคะแนนของ Safari Rescue — แบบ VEX IQ!","ทีมที่ได้คะแนนมากที่สุดเป็น <b>แชมป์เรนเจอร์</b> 🏅"]
+    panel:cardHTML("Scoring","#8B5CF6","Safari Rescue Scoreboard","🏅",
+      ["Bring an injured animal back to Base — <b style='color:#16A34A'>+5 / animal</b>","Use an automatic program (Loop checks on its own) — <b style='color:#0EA5E9'>+3 bonus</b>","Bring all of them back in time — <b style='color:#D99500'>+5 bonus</b>","Touch a green animal — <b style='color:#DC2626'>−5 / time</b>"]),
+    lines:["These are the Safari Rescue scoring rules — VEX IQ style!","The team with the most points is the <b>Ranger Champion</b> 🏅"]
   },
   { bg:"bg-sunset", gogo:"happy",
-    panel:debriefHTML(3,["วันนี้เก็บสัตว์กลับฐานได้กี่ตัว?","ภารกิจไหนยากที่สุด แล้วทีมแก้ปัญหายังไง?","ถ้าทำใหม่ อยากปรับหุ่นยนต์ตรงไหน?"]),
-    lines:["ภารกิจสำเร็จแล้ว! 🎉 มาสรุปผลการดำเนินการกันหน่อยทีมเรนเจอร์","<b>เก็บสัตว์ได้กี่ตัว? ภารกิจไหนยากสุด?</b> ช่วยกันเล่า แล้วจดลงสมุดบันทึกให้ครบนะ"]
+    panel:debriefHTML(3,["How many animals did you bring back to Base today?","Which mission was hardest, and how did your team solve it?","If you did it again, what would you change on your robot?"]),
+    lines:["Mission complete! 🎉 Let's run the debrief together, ranger team","<b>How many animals did you rescue? Which mission was hardest?</b> Talk it through and write it all in your notebook"]
   },
   { bg:"bg-night", gogo:"excited", layer:"scene-oath" },
 ];
